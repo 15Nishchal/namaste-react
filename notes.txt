@@ -1,0 +1,48 @@
+The first way of adding react into our project is via CDN.
+These are the websites where react has been hosted so we are pulling react from there.
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+what is CDN?
+what is crossorigin?
+
+<!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello World from Javascript!";
+
+        const root = document.getElementById("root");
+        root.appendChild(heading);
+    </script> -->
+
+ //it is creating h1 element inside React that is core react thing
+        //now when we have to put this h1 into our DOM we will use ReactDOM library createRoot method
+        const heading = React.createElement("h1", {id: "heading", xyz: "react"}, "Hello World from React!");
+
+ root.render(heading);
+        //this root is the place where all the React code will run
+        //Everything we will render will render inside this root
+        //React.createElement takes three args, 1. tag that we want to create 2. object, 3. what we want to write
+        //inside tag
+        //now we need to put this heading inside the div id root as children
+        //first of all we need to tell react what is the root where we need to render stuff up
+        //so I need to render my heading inside the root so first of all I need to create root
+        //first of all React wants to have root where it can do all the DOM manipulation-
+        //creating a Element is a core thing of React so it comes from first link react.development.js
+        //when we are creating a root and rendering something inside it, it is a job of ReactDOM
+
+what is the most costly operation inside browsers or web page.
+The most costly operation is when your web page is interactive.
+The most important operation or the most important hit that the browsers take is when the DOM nodes need to be manipulated.
+Suppose there is a web page, you click the button and something shows up onto the web page or something hides into the page, what is happening is the DOM tree is getting changed. That is the most costly thing, putting some nodes inside DOM and removing some nodes from DOM. This is the costly operation.
+React comes with philosphy whenever you need to do anything on a web page, do it using javascript
+so React comes with the philosphy of manipulating the DOM using Javascript
+
+{} this object is the place where you will give attributes to your tags
+
+props are children + attributes that we pass in
+
+const heading = React.createElement("h1", {id: "heading", xyz: "react"}, "Hello World from React!");
+//we are creating a ReactElement at the end of the day, this h1 is not the h1 element it is the object
+//this heading is react h1 element, React Element is nothing but a normal javascript object
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(heading);
