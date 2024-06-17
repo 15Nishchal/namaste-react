@@ -32,8 +32,14 @@ what is crossorigin?
 
 what is the most costly operation inside browsers or web page.
 The most costly operation is when your web page is interactive.
-The most important operation or the most important hit that the browsers take is when the DOM nodes need to be manipulated.
-Suppose there is a web page, you click the button and something shows up onto the web page or something hides into the page, what is happening is the DOM tree is getting changed. That is the most costly thing, putting some nodes inside DOM and removing some nodes from DOM. This is the costly operation.
+The most important operation or the most important hit that the browsers take is when the
+ DOM nodes need to be manipulated.
+Suppose there is a web page, you click the button and something shows up onto the 
+
+web page or something hides into the page, what is happening is the DOM tree is getting changed. 
+
+That is the most costly thing, putting some nodes inside DOM and removing some nodes from DOM.
+ This is the costly operation.
 React comes with philosphy whenever you need to do anything on a web page, do it using javascript
 so React comes with the philosphy of manipulating the DOM using Javascript
 

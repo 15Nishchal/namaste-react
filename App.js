@@ -1,4 +1,4 @@
-const heading = React.createElement("h1", {id: "heading", xyz: "react"}, "Hello World from React!");
+
 //"Hello World from React!" -- this is the children which will go inside my h1 tag
 //second arg is attributes they all are come inside props
 //we are creating a ReactElement at the end of the day, this h1 is not the h1 element it is the object
@@ -41,15 +41,17 @@ i.e [React.createElement(), React.createElement()]
 //this parent has two children.//so we pass an array of two children
 
 //creating nested html structure inside react app
-const parent1 = React.createElement("div", {id: "parent"}, 
-React.createElement("div", {id: "child"}, React.createElement("h1", {}, "I am a h1 tag")));
-//third argument is the children that you have to pass in` 
+
+import React from 'react';
+import ReactDom from 'react-dom/client';
+
+//const heading = React.createElement("h1", {id: "heading", xyz: "react"}, "Hello World From Namaste React!");
 
 const parent = React.createElement("div", {id: "parent"}, [
-    React.createElement("div", {id: "child"}, [React.createElement("h1", {}, "I am h1 tag"),
+    React.createElement("div", {id: "child"}, [React.createElement("h1", {}, "Hello World from React"),
     React.createElement("h2", {}, "I'm h2 tag")
 ]),
-React.createElement("div", {id: "child2"}, [React.createElement("h1", {}, "I am h1 tag"),
+React.createElement("div", {id: "child2"}, [React.createElement("h1", {}, "Namaste React 🐱‍🏍"),
 React.createElement("h2", {}, "I am h2 tag")])
 ])
 

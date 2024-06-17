@@ -1,0 +1,206 @@
+# Igniting our APP Episode 2
+
+There are lot of other packages/libraries that are required to make our app as production ready app
+
+NPM manages packages but it does not stand for Node Package Manager.
+NPM behind the scenes works as Node Package Manager, it manages the packages but it does not stand for Node 
+Package Manager
+
+NPM is a standard repository for all the packages. It's biggest package manager.
+Any package you need in your project, you can use NPM. All the packages are hosted over there.
+All the libraries, utilities you would need comes from NPM.
+
+
+When you create a create-react-app, it automatically has NPM inside it. You don't have to configure it.
+How can you make your project use NPM.
+Let's just make our project use Node Package Manager.
+
+when you do npm init -- it will create a package.json file
+npm init - y : This will skip a lot of things. So don't do this.
+This package.json file is basically a configuration for our NPM
+
+NPM:
+It can manage all the packages that you can install in your system.
+And sometimes these packages are also known as Dependencies.
+Our package is dependent on lot of packages.
+Those packages which the project is dependent on are the dependencies and NPM manages that.
+NPM will take care of what is the version of that package.
+
+Suppose if I am using some other library or some other package, what is the version of that package? 
+NPM will take care of that and it will take care in the package.json 
+
+npm: remote repository that contains all the packages.
+
+
+============================================================================================
+
+The most important package in our project is a Bundler
+when you have these normal HTML, CSS files, our whole code needs to be bundled together, our whole
+code needs to be compressed, minified, cleaned before it can be sent to production so a Bundler
+helps you do all the things.
+
+
+Webpack, parcel, vite are bundlers.
+What is the job of bundler?
+It basically bundles your app. It packages your app properly so that it can be shipped to production.
+
+When we create a create-react-app, the create-react-app behind the scenes uses web-pack bundler
+
+parcel will ignite our app
+parcel basically comes as node package
+
+when you install any dependency in your app, you would have the same command
+
+/*
+
+A bundler packages your JavaScript code and its dependencies into a single file 
+or a few files for the browser.
+Bundlers resolve module dependencies, handle different asset types, 
+perform transpilation, and optimize code for production.
+Popular bundlers in the React ecosystem include Webpack, Parcel, and Rollup.
+Using a bundler is essential for managing the complexity and improving the 
+performance of modern web applications.
+
+*/
+
+There are two types of dependencies which an app can have:----
+1. Dev dependency: It is generally require in a development phase. When we are developing our app, then we 
+require the dev dependency
+2. Normal Dependency: These are also used in productions also.
+
+Now this parcel is a bundler (chunking, minification). We will install parcel as dev dependency
+npm install D parcel : you tell npm, the package manager that I want parcel in my app but I want
+it as dev dependency.
+
+we are fetching parcel from there (NPM) remote repository
+
+package.json is the configuration for NPM. It keeps a track of all the dependencies, all the packages
+our code project is using
+
+difference b/w carot and tilde
+parcel : "^2.8.3" 
+Let suppose right now the current version is 2.8.4 and suppose there comes a new version of 
+parcel tomorrow i.e. 2.8.4, since we're using carot here, it will automatically be upgraded to
+2.8.4
+
+2.8.4: is a minor upgrade
+3.0.0 is a minor upgrade
+so when we have a minor upgrade and we have put carot, parcel will automatically upgrade 
+
+And if you have put tilde ~ and tomorrow the major version releases 3.0.0, then it will install major
+version automatically.
+
+
+It is safe to use carot because it is okay to upgrade the minor version but it is not okay to update
+the major version. Because when you have a major update, a lot of things will break into your app.
+
+
+package.json is a configuration for npm. 
+It keeps a track of what version of that package is installed in your system.
+
+package-lock.json keeps a track of exact version that is being installed
+
+Suppose today there is 2.8.5 version is released. my package.json will stay as it is 
+"devDependencies": {
+    "parcel": "^2.12.0"
+  }
+  But package-lock.json kind of locks the version and keeps a record of it. It keeps a record of 
+  exact version of that package of that dependency which is installed.
+
+  difference
+  ---------------
+  package.json can have a carot or tilde while package-lock.json keeps a track of exact version of that package
+  which is installed.
+
+  package.json keeps an approx version of it and package-lock.json keeps exact version
+
+  It is working on my local I don't know how it broke on production.
+
+        "integrity": "sha512-W+gxAq7aQ9dJIg/XLKGcRT0cvnStFAQHPaI0pvD0U2l6IVLueUAm3nwN7lkY62zZNmlvNx6jNtE4wlbS+CyqSg==",
+       This integrity is a hash SHA512.
+
+A lot of developers would say -- It's working on my local, but it's not working on production.
+To avoid that, package-lock.json keeps a hash to verify whatever right now is there in my dev machine is the 
+same version which is being deployed on to the production.
+It keeps a track of all the exact versions of all the dependencies
+
+When you install npm install parcel, one more thing is created i.e. node_modules
+node_modules
+=========================================
+This node_modules contains all the code that has been fetched from the NPM.
+When we did NPM install parcel what happened was, it took some time one min or two to install parcel
+what it was doing, it was fetching all the code of parcel and putting inside node_modules.
+Inside the node_modules, there is actual parcel code which npm has fetched
+
+package.json is a configuration for our NPM.
+node_modules is kind of database. It contains the actual data of that dependencies or those packages
+which our project needs
+node_modules basically fetches all the code of all the dependencies into our system.
+That's why node_modules is kind of database where all the packages exist
+
+----------------------------------------------------------------------------------------------
+In node_modules, apart from parcel code there are some other files and folders
+------------------------------------------------------------------------------------------
+Our project needs parcel. Our project has a dependency parcel.
+Now parcel as a project has its own dependencies and those dependencies can have their own dependencies
+and so on.
+This is known as Transitive Dependencies.
+
+parcel uses babel and a lot of other libraries
+parcel uses browserlist package
+
+Should I put package-lock.json on Github?
+--------------------------------------------------------
+Yes,
+package.json and package-lock.json maintains a note of all the dependencies what our project needs.
+
+But you don't have to put node_modules on github because if I have package and package-lock.json files.
+I can regenerate my node_modules.
+
+Even if you delete node_modules folder you can recreate only if you have package.json and package-lock.json file
+you just have to run --> npm install .
+That is why it is not required to push node_modules on to the github
+
+NOTE: whatever you can regenerate don't put that on Git
+
+We will use parcel to ignite our app.
+We are building our app using parcel -- npx parcel index.html //source file of our project
+We have executed the parcel, the bunlder
+parcel has created a server for us and it has given 1234 port and it has hosted our app on to server
+
+
+Just like we have npm similarly we have npx, npx means executing a package, if you have to install a package
+you write npm install.
+If you want to execute a package, you write npx package_name and it will execute that package.
+
+When we do npx parcel index.html 
+index.html is the source, parcel goes to the source and build a development build for our app and it hosts
+that development build to localhost1234
+
+Another way of getting react is via npm. At the end of the day, React is JavaScript  package, it is a js piece
+of code and it is hosted on NPM also.
+So we will get react from NPM 
+
+Now we will install React as package to our code
+
+npm install react: By executing this command, react will be installed as normal dependency and not as dev
+dependency and in the package.json file, it will have its version with carot
+
+npm i is the short form of npm install
+
+We also need react-dom in our project: npm install react-dom
+
+
+import React from 'react' //this  last react refers to the react in node_moduels so this react here is
+coming from react in node_modules 
+import ReactDom from 'react-dom' // It also come from node_modules
+
+ERROR: Browser scripts can not have import or exports
+This error is coming because our browser is reading App.js as normal Js file and normal js file can not 
+have import or export
+<script src = "./App.js">
+<script type=module src = "./App.js">//Now it will be considered as module and not normal JS file
+We need to tell browsers that it is not a normal JS file, it is a module
+
+Install parcel as dev dependency
+npm install -D parcel
