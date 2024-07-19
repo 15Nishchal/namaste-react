@@ -72,3 +72,21 @@ When it generates a development build, it puts up in this **dist** folder
 
 # In your Interview, whenever your interviewer asks -
 # Why your app is fast? How it is optimized?
+-----------------------------------------------------------
+
+# What does the command npx mean?
+- npx means you are executing the npm package parcel and you give the source file as index.html. 
+These commands are different for development build and production build
+
+To make our life easier, what we do, we create a script that will build our project instead of writing this command again and again.
+- You need to create that script in package.json
+- Let's create a script for starting our project in dev mode
+
+- start means starting the project in dev mode
+- build means building the project for production mode
+- npm run start is equivalent to npx parcel index.html, since we have written a script to start our project in
+dev mode so we no longer need to write npx parcel index.html
+- Similarly we can write 
+# npm run build - It builds our project for production
+
+# npm run start - or  npm run  both will start our project in dev mode
